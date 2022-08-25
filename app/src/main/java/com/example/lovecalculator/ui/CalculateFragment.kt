@@ -1,32 +1,21 @@
 package com.example.lovecalculator.ui
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.example.lovecalculator.App
+import com.example.lovecalculator.BaseFragment
+import com.example.lovecalculator.LoveViewModel
 import com.example.lovecalculator.R
 import com.example.lovecalculator.databinding.FragmentCalculateBinding
-import com.example.lovecalculator.network.LoveModel
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class CalculateFragment : Fragment() {
+class CalculateFragment : BaseFragment<FragmentCalculateBinding>() {
 
-    private lateinit var binding: FragmentCalculateBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentCalculateBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    private val viewModel: LoveViewModel by viewModels()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,26 +25,19 @@ class CalculateFragment : Fragment() {
     private fun initClicks() {
         with(binding) {
             buttonCalculate.setOnClickListener {
-                calculate()
+                viewModel.fillLoveModel(
+                    editTextMe.text.toString(),
+                    editTextYou.text.toString()
+                ).observe(viewLifecycleOwner, Observer {
+                    val result = it.result
+                    val bundle = bundleOf("key" to result)
+                    findNavController().navigate(R.id.resultFragment, bundle)
+                })
             }
         }
     }
 
-    private fun FragmentCalculateBinding.calculate() {
-        App.api.calculateLove(
-            firstName = editTextYou.text.toString(),
-            secondName = editTextMe.text.toString()
-        ).enqueue(object : Callback<LoveModel> {
-            override fun onResponse(call: Call<LoveModel>, response: Response<LoveModel>) {
-                val result = response.body()?.result ?: "Not found"
-                val bundle = bundleOf("key" to result)
-                findNavController().navigate(R.id.resultFragment, bundle)
-            }
-
-            override fun onFailure(call: Call<LoveModel>, t: Throwable) {
-                Log.e("ololo", "onFailure:${t.message}")
-            }
-
-        })
+    override fun inflate(): FragmentCalculateBinding {
+        return FragmentCalculateBinding.inflate(layoutInflater)
     }
 }
