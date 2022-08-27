@@ -1,4 +1,4 @@
-package com.example.lovecalculator
+package com.example.lovecalculator.common
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink_bg"
     android:orientation="vertical"
     tools:context=".ui.ResultFragment">
 
@@ -13,6 +14,7 @@
         android:layout_marginTop="232dp"
         android:gravity="center"
         android:text="Result is"
+        android:textColor="@color/pink_theme"
         android:textSize="26sp" />
 
     <TextView
@@ -22,6 +24,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
         android:text="Result"
+        android:textColor="@color/pink_theme"
         android:textSize="22sp" />
 
 </LinearLayout>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink_bg"
     android:orientation="vertical"
     tools:context=".ui.CalculateFragment">
 
@@ -14,6 +15,7 @@
         android:layout_marginTop="220dp"
         android:gravity="center_horizontal"
         android:text="Love calculator"
+        android:textColor="@color/pink_theme"
         android:textSize="24sp" />
 
     <TextView
@@ -23,6 +25,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:text="First Name"
+        android:textColor="@color/pink_theme"
         android:textSize="14sp" />
 
     <EditText
@@ -32,6 +35,7 @@
         android:layout_marginHorizontal="12dp"
         android:hint="You"
         android:padding="12dp"
+        android:textColor="@color/pink_theme"
         android:textSize="12sp" />
 
     <TextView
@@ -41,6 +45,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:text="Second Name"
+        android:textColor="@color/pink_theme"
         android:textSize="14sp" />
 
     <EditText
@@ -50,6 +55,7 @@
         android:layout_marginHorizontal="12dp"
         android:hint="Me"
         android:padding="12dp"
+        android:textColor="@color/pink_theme"
         android:textSize="12sp" />
 
     <Button
@@ -58,6 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginTop="24dp"
+        android:backgroundTint="@color/pink_theme"
         android:padding="12dp"
         android:text="Calculate" />
 
