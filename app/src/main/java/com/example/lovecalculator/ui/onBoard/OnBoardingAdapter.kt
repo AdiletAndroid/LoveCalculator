@@ -1,4 +1,4 @@
-package com.example.lesson41.ui.onBoard
+package com.example.lovecalculator.ui.onBoard
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lovecalculator.R
 import com.example.lovecalculator.databinding.ItemBoardingBinding
-import com.example.lovecalculator.ui.onBoard.BoardModel
 
 class BoardingAdapter(private val onStartClick: () -> Unit) :
     RecyclerView.Adapter<BoardingAdapter.ViewHolder>() {

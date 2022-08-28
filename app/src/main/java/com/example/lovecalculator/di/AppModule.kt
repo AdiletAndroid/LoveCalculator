@@ -1,9 +1,12 @@
 package com.example.lovecalculator.di
 
+import android.content.Context
 import com.example.lovecalculator.network.LoveApi
+import com.example.lovecalculator.pref.Preferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,4 +23,10 @@ class AppModule {
             .addConverterFactory(GsonConverterFactory.create()).build().create(LoveApi::class.java)
     }
 
+    @Provides
+    @Singleton
+    fun providePref(@ApplicationContext context: Context): Preferences {
+        return Preferences(context)
+    }
 }
+

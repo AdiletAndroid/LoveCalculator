@@ -22,6 +22,6 @@
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.example.lesson41.ui.onBoard.OnBoardingFragment"
+        android:name="com.example.lovecalculator.ui.onBoard.OnBoardingFragment"
         android:label="OnBoardingFragment" />
 </navigation>

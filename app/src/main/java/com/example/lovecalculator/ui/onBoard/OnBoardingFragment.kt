@@ -1,26 +1,28 @@
-package com.example.lesson41.ui.onBoard
+package com.example.lovecalculator.ui.onBoard
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.PagerSnapHelper
-import com.example.lovecalculator.pref.Pref
 import com.example.lovecalculator.databinding.FragmentOnBoardingBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class OnBoardingFragment : Fragment() {
+@AndroidEntryPoint
+class OnBoardingFragment : Fragment(){
 
-    private lateinit var binding: FragmentOnBoardingBinding
-    private lateinit var pref: SharedPreferences
+    private val viewModel: OnBoardingViewModel by viewModels()
+    lateinit var binding: FragmentOnBoardingBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentOnBoardingBinding.inflate(layoutInflater, container, false)
+    ): View? {
+        binding = FragmentOnBoardingBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -44,7 +46,7 @@ class OnBoardingFragment : Fragment() {
     }
 
     private fun start() {
-        Pref(requireContext()).saveShown()
+        viewModel.saveShown()
         findNavController().navigateUp()
     }
 }

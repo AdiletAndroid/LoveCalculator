@@ -1,14 +1,15 @@
 package com.example.lovecalculator.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.example.lovecalculator.common.BaseFragment
 import com.example.lovecalculator.LoveViewModel
 import com.example.lovecalculator.R
+import com.example.lovecalculator.common.BaseFragment
 import com.example.lovecalculator.databinding.FragmentCalculateBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,7 +40,8 @@ class CalculateFragment : BaseFragment<FragmentCalculateBinding>() {
         }
     }
 
-    override fun inflate(): FragmentCalculateBinding {
-        return FragmentCalculateBinding.inflate(layoutInflater)
+    override fun inflate(inflater: LayoutInflater): FragmentCalculateBinding {
+        return FragmentCalculateBinding.inflate(inflater)
     }
+
 }
