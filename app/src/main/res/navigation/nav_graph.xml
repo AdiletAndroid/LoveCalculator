@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_result" />
     <fragment
         android:id="@+id/calculateFragment"
-        android:name="com.example.lovecalculator.ui.CalculateFragment"
+        android:name="com.example.lovecalculator.ui.calculateFragment.CalculateFragment"
         android:label="fragment_calculate"
         tools:layout="@layout/fragment_calculate" >
 

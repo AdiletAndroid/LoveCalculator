@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/pink_bg"
     android:orientation="vertical"
-    tools:context=".ui.CalculateFragment">
+    tools:context=".ui.calculateFragment.CalculateFragment">
 
 
     <TextView

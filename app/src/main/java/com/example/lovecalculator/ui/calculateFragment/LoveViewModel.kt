@@ -1,4 +1,4 @@
-package com.example.lovecalculator
+package com.example.lovecalculator.ui.calculateFragment
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
