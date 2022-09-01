@@ -8,16 +8,17 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.lovecalculator.R
+import com.example.lovecalculator.common.App
 import com.example.lovecalculator.common.BaseFragment
 import com.example.lovecalculator.databinding.FragmentCalculateBinding
+import com.example.lovecalculator.network.LoveModel
+import com.example.lovecalculator.room.LoveEntity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CalculateFragment : BaseFragment<FragmentCalculateBinding>() {
 
-
     private val viewModel: LoveViewModel by viewModels()
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,7 +35,18 @@ class CalculateFragment : BaseFragment<FragmentCalculateBinding>() {
                     val result = it.result
                     val bundle = bundleOf("key" to result)
                     findNavController().navigate(R.id.resultFragment, bundle)
+
+                    val loveEntity = LoveEntity(
+                        firstName = it.firstName,
+                        secondName = it.secondName,
+                        percentage = it.percentage,
+                        result = it.result,
+                    )
+                    App.appDataBase.loveDao().insert(loveEntity)
                 })
+            }
+            buttonHistory.setOnClickListener {
+                findNavController().navigate(R.id.historyFragment)
             }
         }
     }

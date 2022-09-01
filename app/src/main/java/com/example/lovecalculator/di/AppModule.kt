@@ -1,8 +1,11 @@
 package com.example.lovecalculator.di
 
 import android.content.Context
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.example.lovecalculator.network.LoveApi
 import com.example.lovecalculator.pref.Preferences
+import com.example.lovecalculator.room.AppDataBase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,5 +31,14 @@ class AppModule {
     fun providePref(@ApplicationContext context: Context): Preferences {
         return Preferences(context)
     }
+
+   /* @Provides
+    @Singleton
+    fun provideDataBase(): RoomDatabase {
+        return Room.databaseBuilder(
+            applicationContext, AppDataBase::
+            class.java, "database-name"
+        ).allowMainThreadQueries().build()
+    }*/
 }
 

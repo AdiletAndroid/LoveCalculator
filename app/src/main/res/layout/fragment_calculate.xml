@@ -68,4 +68,14 @@
         android:padding="12dp"
         android:text="Calculate" />
 
+    <Button
+        android:id="@+id/button_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/pink_theme"
+        android:padding="12dp"
+        android:text="History" />
+
 </LinearLayout>
