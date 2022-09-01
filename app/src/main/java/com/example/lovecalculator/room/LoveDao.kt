@@ -11,6 +11,6 @@ interface LoveDao {
     @Insert
     fun insert(loveModel: LoveEntity)
 
-    @Query("SELECT * FROM love_model ORDER BY firstName, secondName ASC")
+    @Query("SELECT * FROM love_model ORDER BY firstName ASC")
     fun getAll(): LiveData<List<LoveEntity>>
 }
