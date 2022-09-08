@@ -35,8 +35,8 @@ class AppModule {
     @Provides
     @Singleton
     fun provideDataBase(@ApplicationContext app: Context) =
-        Room.databaseBuilder(app, AppDataBase::class.java, "database-name").allowMainThreadQueries()
-            .build()
+        Room.databaseBuilder(app, AppDataBase::class.java, "database-name").
+        allowMainThreadQueries().build()
 
     @Provides
     @Singleton

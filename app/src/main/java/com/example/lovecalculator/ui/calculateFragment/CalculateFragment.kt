@@ -11,8 +11,7 @@ import com.example.lovecalculator.R
 import com.example.lovecalculator.common.App
 import com.example.lovecalculator.common.BaseFragment
 import com.example.lovecalculator.databinding.FragmentCalculateBinding
-import com.example.lovecalculator.network.LoveModel
-import com.example.lovecalculator.room.LoveDao
+import com.example.lovecalculator.room.AppDataBase
 import com.example.lovecalculator.room.LoveEntity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -21,6 +20,9 @@ import javax.inject.Inject
 class CalculateFragment : BaseFragment<FragmentCalculateBinding>() {
 
     private val viewModel: LoveViewModel by viewModels()
+
+    @Inject
+    lateinit var appDataBase: AppDataBase
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,7 +46,7 @@ class CalculateFragment : BaseFragment<FragmentCalculateBinding>() {
                         percentage = it.percentage,
                         result = it.result,
                     )
-                    App.appDataBase.loveDao().insert(loveEntity)
+                    appDataBase.loveDao().insert(loveEntity)
                 })
             }
             buttonHistory.setOnClickListener {
