@@ -1,20 +1,17 @@
 package com.example.lovecalculator.common
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.lovecalculator.di.AppModule
 import com.example.lovecalculator.network.LoveApi
 import com.example.lovecalculator.network.LoveModel
-import com.example.lovecalculator.room.AppDataBase
-import com.example.lovecalculator.room.LoveEntity
+import com.example.lovecalculator.room.LoveDao
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 import javax.inject.Inject
 
-class Repository @Inject constructor(private val api: LoveApi) {
+class Repository @Inject constructor(private val api: LoveApi, private val loveDao: LoveDao) {
+
     fun getLoveModel(firstName: String, secondName: String): MutableLiveData<LoveModel> {
         val mutableLoveModel: MutableLiveData<LoveModel> = MutableLiveData()
 

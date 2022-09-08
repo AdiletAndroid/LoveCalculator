@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.example.lovecalculator.network.LoveApi
 import com.example.lovecalculator.pref.Preferences
 import com.example.lovecalculator.room.AppDataBase
+import com.example.lovecalculator.room.LoveDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,5 +37,9 @@ class AppModule {
     fun provideDataBase(@ApplicationContext app: Context) =
         Room.databaseBuilder(app, AppDataBase::class.java, "database-name").allowMainThreadQueries()
             .build()
+
+    @Provides
+    @Singleton
+    fun provideDao(db: AppDataBase) = db.loveDao()
 }
 
